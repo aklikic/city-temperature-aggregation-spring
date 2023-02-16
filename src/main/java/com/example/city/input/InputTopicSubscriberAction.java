@@ -7,7 +7,7 @@ import kalix.springsdk.annotations.Subscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Subscribe.Topic("inputTopic")
+@Subscribe.Topic("input")
 public class InputTopicSubscriberAction extends Action {
 
     private static Logger logger = LoggerFactory.getLogger(InputTopicSubscriberAction.class);
