@@ -57,7 +57,7 @@ public interface Model {
             return new City(ImmutableList.of(),aggregationLimit,aggregationTimeWindowSeconds,null);
         }
 
-    };
+    }
 
     //event sourcing durable storage model data definition
     record CreatedEvent(String cityId, Integer aggregationLimit, Integer aggregationTimeWindowSeconds,Instant timestamp) implements Model {}

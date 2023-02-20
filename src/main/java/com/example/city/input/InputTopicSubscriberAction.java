@@ -6,8 +6,10 @@ import kalix.springsdk.KalixClient;
 import kalix.springsdk.annotations.Subscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Profile;
 
 @Subscribe.Topic("input")
+@Profile("!test")
 public class InputTopicSubscriberAction extends Action {
 
     private static Logger logger = LoggerFactory.getLogger(InputTopicSubscriberAction.class);
