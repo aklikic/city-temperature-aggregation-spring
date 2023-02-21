@@ -5,8 +5,13 @@ import com.google.common.collect.ImmutableList;
 import java.time.Instant;
 
 public interface Model {
-    record TemperatureRecord(String recordId, Integer temperature, Instant timestamp) implements Model {};
-    record City(ImmutableList<TemperatureRecord> records, Integer aggregationLimit, Integer aggregationTimeWindowSeconds, String aggregationId) implements Model {
+    record TemperatureRecord(String recordId,
+                             Integer temperature,
+                             Instant timestamp) implements Model {};
+    record City(ImmutableList<TemperatureRecord> records,
+                Integer aggregationLimit,
+                Integer aggregationTimeWindowSeconds,
+                String aggregationId) implements Model {
         public static City empty(){
             return new City(null,0,0,null);
         }
@@ -60,13 +65,32 @@ public interface Model {
     }
 
     //event sourcing durable storage model data definition
-    record CreatedEvent(String cityId, Integer aggregationLimit, Integer aggregationTimeWindowSeconds,Instant timestamp) implements Model {}
-    record TemperatureAddedEvent(String cityId, String aggregationId, String recordId, Integer temperature, boolean firstRecordInAggregation, Integer aggregationTimeWindowSeconds, Instant timestamp) implements Model {}
-    record TemperatureAggregatedEvent(String cityId, String aggregationId, Integer avgTemperature, Integer maxTemperature, Integer minTemperature, Integer numberOfRecordsAggregated, Instant aggregationStartTime, Instant aggregationEndTime, Instant timestamp) implements Model {}
+    record CreatedEvent(String cityId,
+                        Integer aggregationLimit,
+                        Integer aggregationTimeWindowSeconds,
+                        Instant timestamp) implements Model {}
+    record TemperatureAddedEvent(String cityId,
+                                 String aggregationId,
+                                 String recordId, Integer temperature,
+                                 boolean firstRecordInAggregation,
+                                 Integer aggregationTimeWindowSeconds,
+                                 Instant timestamp) implements Model {}
+    record TemperatureAggregatedEvent(String cityId,
+                                      String aggregationId,
+                                      Integer avgTemperature,
+                                      Integer maxTemperature,
+                                      Integer minTemperature,
+                                      Integer numberOfRecordsAggregated,
+                                      Instant aggregationStartTime,
+                                      Instant aggregationEndTime,
+                                      Instant timestamp) implements Model {}
 
     //external api data model
-    record CreateRequest( String name, Integer aggregationLimit, Integer aggregationTimeWindowSeconds) implements Model {}
-    record AddTemperatureRequest(String recordId, Integer temperature) implements Model {}
+    record CreateRequest( String name,
+                          Integer aggregationLimit,
+                          Integer aggregationTimeWindowSeconds) implements Model {}
+    record AddTemperatureRequest(String recordId,
+                                 Integer temperature) implements Model {}
 
 
     //internal api data model
