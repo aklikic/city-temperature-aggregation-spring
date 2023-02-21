@@ -20,5 +20,5 @@ services:
       # Uncomment to set the JWT dev secret issuer
       # JWT_DEV_SECRET_ISSUER: "my-issuer"
     volumes:
-      - ./test.kafka.properties:/conf/kafka.properties
+      - ./local.kafka.properties:/conf/kafka.properties
 

@@ -42,7 +42,7 @@ public class IntegrationTest extends KalixIntegrationTestKitSupport {
   private Duration timeout = Duration.of(5, ChronoUnit.SECONDS);
 
   @Test
-  public void testQuantityBasedAggregation() throws Exception {
+  public void aggregateByQuantity() throws Exception {
     var cityId = UUID.randomUUID().toString();
     var aggregationLimit = 3;
     var aggregationTimeWindowSeconds = 10;
@@ -81,7 +81,7 @@ public class IntegrationTest extends KalixIntegrationTestKitSupport {
   }
 
   @Test
-  public void testTimeWindowBasedAggregation() throws Exception {
+  public void aggregateByTime() throws Exception {
     var cityId = UUID.randomUUID().toString();
     var aggregationLimit = 3;
     var aggregationTimeWindowSeconds = 1;
